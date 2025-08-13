@@ -1,0 +1,45 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Cards</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <img src="logo.svg" alt="Recipe Logo" class="logo">
+        <h1>Recipe Cards</h1>
+    </div>
+    <nav class="nav-links">
+        <a href="#" class="active" data-filter="all">Home</a>
+        <a href="#" data-filter="veg">Veg</a>
+        <a href="#" data-filter="non-veg">Non-Veg</a>
+        <a href="#" data-filter="budget">Budget</a>
+        <a href="#" data-filter="favorites">Favorites</a>
+        <input type="text" id="search" placeholder="Search recipes...">
+    </nav>
+    
+</header>
+
+
+<main id="recipe-list" class="grid"></main>
+
+<!-- Modal -->
+<div id="recipe-modal" class="modal">
+    <div class="modal-content">
+        <span id="close-modal">&times;</span>
+        <h2 id="modal-title"></h2>
+        <img id="modal-image" alt="Recipe Image">
+        <h3>Ingredients</h3>
+        <ul id="modal-ingredients"></ul>
+        <h3>Steps</h3>
+        <ol id="modal-steps"></ol>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

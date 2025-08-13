@@ -1,0 +1,235 @@
+ /* General Page Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: whitesmoke;
+    background-size: cover;
+    color: #2f2222;
+}
+
+/* ===== Header with Nav & Search ===== */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px 20px;
+    background: rgba(85, 64, 61, 0.6);
+    color: white;
+    backdrop-filter: blur(8px);
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.5s;
+    font-size: 14px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: rgba(0, 101, 29, 0.2);
+}
+
+/* Search Bar in Header */
+header #search {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    background: rgba(80, 70, 70, 0.2);
+    color: white;
+}
+
+header #search::placeholder {
+    color: #eee;
+}
+
+/* ===== Recipe Grid ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+/* ===== Glassmorphism Card Style ===== */
+.card {
+    background: rgba(249, 245, 245, 0.15);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.3);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 10px;
+}
+
+.card-content h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+.tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.3);
+    font-size: 12px;
+    margin: 2px;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+/* Favorite Icon */
+.favorite {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.favorite.active {
+    color: red;
+}
+
+/* ===== Modal Styles ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    backdrop-filter: blur(6px);
+    background-color: rgba(0,0,0,0.5);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.85);
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    animation: slideIn 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+#close-modal {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* Compact Ingredients List */
+#modal-ingredients {
+    font-size: 14px;
+    line-height: 1.4;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    gap: 5px 20px;
+    list-style-type: disc;
+}
+
+#modal-ingredients li {
+    margin-bottom: 4px;
+}
+
+/* Steps */
+#modal-steps {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+#modal-steps li {
+    margin-bottom: 4px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {opacity: 0;} to {opacity: 1;}
+}
+
+@keyframes slideIn {
+    from {transform: translateY(-30px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        padding: 10px;
+        gap: 10px;
+    }
+    .modal-content {
+        width: 95%;
+        max-width: 95vw;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        padding: 10px;
+        text-align: center;
+    }
+    .nav-links {
+        justify-content: center;
+        margin-bottom: 8px;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 5px;
+    }
+    .card img {
+        height: 110px;
+    }
+    #modal-ingredients {
+        grid-template-columns: 1fr;
+        padding-left: 10px;
+        gap: 4px 10px;
+    }
+    .modal-content {
+        width: 98%;
+        max-width: 98vw;
+        padding: 8px;
+    }
+}
