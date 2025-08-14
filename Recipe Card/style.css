@@ -1,8 +1,11 @@
- /* General Page Styling */
+ /* ===== Import Fonts ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap');
+
+/* ===== General Page Styling ===== */
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: whitesmoke;
     background-size: cover;
     color: #2f2222;
@@ -27,7 +30,9 @@ header {
 
 header h1 {
     margin: 0;
-    font-size: 20px;
+    font-size: 28px;
+    font-family: 'Pacifico', cursive;
+    letter-spacing: 1px;
 }
 
 .nav-links {
@@ -42,7 +47,7 @@ header h1 {
     padding: 6px 12px;
     border-radius: 6px;
     transition: background 0.5s;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .nav-links a:hover,
@@ -58,6 +63,7 @@ header #search {
     outline: none;
     background: rgba(80, 70, 70, 0.2);
     color: white;
+    font-size: 14px;
 }
 
 header #search::placeholder {
@@ -103,7 +109,8 @@ header #search::placeholder {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .tag {
@@ -118,7 +125,7 @@ header #search::placeholder {
 /* Favorite Icon */
 .favorite {
     cursor: pointer;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .favorite.active {
@@ -148,39 +155,46 @@ header #search::placeholder {
     backdrop-filter: blur(10px);
 }
 
+/* Close Button */
 #close-modal {
     float: right;
     font-size: 22px;
     cursor: pointer;
 }
 
-/* Compact Ingredients List */
-#modal-ingredients {
-    font-size: 14px;
-    line-height: 1.4;
-    padding-left: 20px;
+/* ===== Glassmorphism Ingredients & Steps ===== */
+#modal-ingredients,
+#modal-steps {
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0;
     margin-bottom: 15px;
     display: grid;
-    grid-template-columns: repeat(2, minmax(100px, 1fr));
-    gap: 5px 20px;
-    list-style-type: disc;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+    list-style: none;
 }
 
-#modal-ingredients li {
-    margin-bottom: 4px;
-}
-
-/* Steps */
-#modal-steps {
-    font-size: 14px;
-    line-height: 1.4;
-}
-
+#modal-ingredients li,
 #modal-steps li {
-    margin-bottom: 4px;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(6px);
+    padding: 8px 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
 }
 
-/* Animations */
+#modal-ingredients li:hover,
+#modal-steps li:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.35);
+}
+
+/* ===== Animations ===== */
 @keyframes fadeIn {
     from {opacity: 0;} to {opacity: 1;}
 }
@@ -222,7 +236,8 @@ header #search::placeholder {
     .card img {
         height: 110px;
     }
-    #modal-ingredients {
+    #modal-ingredients,
+    #modal-steps {
         grid-template-columns: 1fr;
         padding-left: 10px;
         gap: 4px 10px;

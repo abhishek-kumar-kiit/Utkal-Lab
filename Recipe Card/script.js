@@ -7,19 +7,26 @@ const modal = document.getElementById("recipe-modal");
 const closeModal = document.getElementById("close-modal");
 let currentFilter = "all";
 
-// Fetch recipes from JSON file
+// ===== Fetch recipes from JSON file =====
 fetch("recipes.json")
     .then(res => res.json())
     .then(data => {
         recipes = data;
         renderRecipes(recipes);
-    });
+    })
+    .catch(err => console.error("Error loading recipes:", err));
 
+// ===== Render Recipes =====
 function renderRecipes(list) {
     recipeList.innerHTML = "";
-    recipeList.classList.remove("fade-in"); // reset animation
-    void recipeList.offsetWidth; // force reflow
-    recipeList.classList.add("fade-in"); // trigger animation
+    recipeList.classList.remove("fade-in"); 
+    void recipeList.offsetWidth; 
+    recipeList.classList.add("fade-in"); 
+
+    if (list.length === 0) {
+        recipeList.innerHTML = `<p style="text-align:center;font-size:18px;">No recipes found.</p>`;
+        return;
+    }
 
     list.forEach(recipe => {
         const card = document.createElement("div");
@@ -30,7 +37,7 @@ function renderRecipes(list) {
             <div class="card-content">
                 <h3>${recipe.name}
                     <span class="favorite ${favorites.includes(recipe.id) ? 'active' : ''}" 
-                          onclick="toggleFavorite(${recipe.id})">♥</span>
+                          onclick="toggleFavorite(${recipe.id}, event)">♥</span>
                 </h3>
                 ${recipe.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
             </div>
@@ -46,6 +53,7 @@ function renderRecipes(list) {
     });
 }
 
+// ===== Open Modal =====
 function openModal(recipe) {
     document.getElementById("modal-title").textContent = recipe.name;
     document.getElementById("modal-image").src = recipe.image;
@@ -57,7 +65,9 @@ function openModal(recipe) {
 closeModal.onclick = () => modal.style.display = "none";
 window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; };
 
-function toggleFavorite(id) {
+// ===== Toggle Favorites =====
+function toggleFavorite(id, event) {
+    event.stopPropagation(); // prevent modal from opening
     if (favorites.includes(id)) {
         favorites = favorites.filter(fav => fav !== id);
     } else {
@@ -67,6 +77,7 @@ function toggleFavorite(id) {
     applyFilters();
 }
 
+// ===== Apply Search & Filter =====
 function applyFilters() {
     const searchTerm = searchInput.value.toLowerCase();
     let filtered = recipes.filter(r => r.name.toLowerCase().includes(searchTerm));
@@ -84,7 +95,7 @@ function applyFilters() {
 
 searchInput.addEventListener("input", applyFilters);
 
-// Nav Links Filter
+// ===== Nav Links Filter =====
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', e => {
         e.preventDefault();
