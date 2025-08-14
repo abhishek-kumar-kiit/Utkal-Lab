@@ -53,7 +53,7 @@ function renderRecipes(list) {
     });
 }
 
-// ===== Open Modal =====
+//  Open Modal 
 function openModal(recipe) {
     document.getElementById("modal-title").textContent = recipe.name;
     document.getElementById("modal-image").src = recipe.image;
@@ -65,7 +65,7 @@ function openModal(recipe) {
 closeModal.onclick = () => modal.style.display = "none";
 window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; };
 
-// ===== Toggle Favorites =====
+// Toggle Favorites 
 function toggleFavorite(id, event) {
     event.stopPropagation(); // prevent modal from opening
     if (favorites.includes(id)) {
@@ -77,7 +77,7 @@ function toggleFavorite(id, event) {
     applyFilters();
 }
 
-// ===== Apply Search & Filter =====
+// Apply Search & Filter
 function applyFilters() {
     const searchTerm = searchInput.value.toLowerCase();
     let filtered = recipes.filter(r => r.name.toLowerCase().includes(searchTerm));
@@ -95,7 +95,7 @@ function applyFilters() {
 
 searchInput.addEventListener("input", applyFilters);
 
-// ===== Nav Links Filter =====
+//  Nav Links Filter
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', e => {
         e.preventDefault();
