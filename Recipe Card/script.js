@@ -37,7 +37,7 @@ function renderRecipes(list) {
             <div class="card-content">
                 <h3>${recipe.name}
                     <span class="favorite ${favorites.includes(recipe.id) ? 'active' : ''}" 
-                          onclick="toggleFavorite(${recipe.id}, event)">♥</span>
+                          onclick="toggleFavorite(${recipe.id}, event)">⭐</span>
                 </h3>
                 ${recipe.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
             </div>
