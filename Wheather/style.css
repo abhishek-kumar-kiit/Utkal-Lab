@@ -1,12 +1,10 @@
 
     :root{
       --bg: #0b2a3d;
-      --bg-2: #16384e;
       --card: rgba(255,255,255,.08);
       --card-strong: rgba(255,255,255,.12);
       --text: #e6f0f6;
       --muted: #b7c7d4;
-      --brand: #6ad3ff;
       --accent: #71ffa5;
       --danger: #ff7c7c;
       --shadow: 0 10px 30px rgba(0,0,0,.35);
@@ -17,7 +15,7 @@
     body{
       margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       color:var(--text);
-      background: radial-gradient(1200px 600px at 10% -10%,#164562 5%, transparent 55%),
+      background: radial-gradient(1200px 600px at 10% -10%,#0b2a3d 5%, transparent 1%),
                   radial-gradient(1000px 600px at 100% 0%,#0f3b54 5%, transparent 55%),
                   linear-gradient(180deg,#0a2636 0%,#0b1f2c 100%);
     }
@@ -29,7 +27,7 @@
     }
     .container{max-width:1120px;margin:0 auto;padding:22px 18px}
     .brand{display:flex;align-items:center;gap:12px}
-    .brand .logo{width:34px;height:34px;border-radius:9px;background: linear-gradient(135deg,#65c7ff,#7affe0); display:grid;place-items:center;color:#0b1f2c;font-weight:800;box-shadow: var(--shadow)}
+    .brand .logo{width:34px;height:34px;border-radius:9px;background: linear-gradient(135deg,#2c00bb,#7affe0); display:grid;place-items:center;color:#0b1f2c;font-weight:800;box-shadow: var(--shadow)}
     .brand h1{margin:0;font-size:clamp(18px,2vw,22px);letter-spacing:.3px}
 
     /* Controls Bar */
@@ -57,12 +55,12 @@
     .toggle button[aria-pressed="true"]{background:var(--brand);color:#062031}
 
     /* Grid */
-    main{padding:24px 0}
+    main{padding:50px 0}
     .grid{display:grid;grid-template-columns: 1.1fr 1fr; gap:16px}
     @media (max-width:950px){.grid{grid-template-columns: 1fr}}
 
-    .card{background:var(--card);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .card .hd{padding:16px 18px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between}
+    .card{background:var(--card);border:1px solid rgba(255, 255, 255, 0.12);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .card .hd{padding:16px 18px;border-bottom:1px solid rgba(255, 255, 255, 0.08);display:flex;align-items:center;justify-content:space-between}
     .card .bd{padding:16px 18px}
 
     /* country card */
@@ -83,9 +81,9 @@
     .chip{background:rgba(255,255,255,.08);padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);cursor:pointer}
 
     /* footer */
-    footer{color:var(--muted);font-size:13px;padding-bottom:32px}
+    footer{color:var(--muted);font-size:40px;padding-bottom:32px}
     a{color:var(--brand)}
-
-    /* accessibility focus */
-    :focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:10px}
-  
+  #chart {
+  width: 70% !important;
+  height: 300px; 
+}
