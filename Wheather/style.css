@@ -1,6 +1,6 @@
 
     :root{
-      --bg: #0b2a3d;
+      --bg: #09283b;
       --card: rgba(255,255,255,.08);
       --card-strong: rgba(255,255,255,.12);
       --text: #e6f0f6;
@@ -80,13 +80,13 @@
     .recent{display:flex;flex-wrap:wrap;gap:8px}
     .chip{
       padding: 14px 12px;
-      border-radius: 999px;
-      border: 2px solid rgba(190, 199, 199, 0.12);
+      border-radius: 998px;
+      border: 2px solid rgba(246, 254, 254, 0.12);
       cursor: pointer;
     }
 
     /* footer */
-    footer{color:var(--muted);font-size:40px;padding-bottom:32px}
+    footer{color:var(--muted);font-size:40px;padding-bottom:34px}
     a{color:var(--brand)}
   #chart {
   width: 70% !important;
