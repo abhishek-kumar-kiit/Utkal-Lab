@@ -96,7 +96,7 @@ async function fetchWeather({ lat, lon }) {
     const idx = w.hourly?.time.indexOf(w.current_weather?.time);
     $('nowTemp').textContent = t==null ? '—' : (unit==='C'?`${t.toFixed(1)} °C`:`${(t*9/5+32).toFixed(1)} °F`);
     $('nowWind').textContent = wind==null ? '—' : `${wind.toFixed(0)} km/h`;
-    $('nowRain').textContent = idx>-1 ? `${(w.hourly.precipitation[idx]||0).toFixed(1)} mm` : '—';
+    //$('nowRain').textContent = idx>-1 ? `${(w.hourly.precipitation[idx]||0).toFixed(1)} mm` : '—';
     setStatus('statusWeather','ok'); drawChart(w);
   } catch { setStatus('statusWeather','error'); }
 }
